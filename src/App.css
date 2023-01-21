@@ -41,6 +41,7 @@
   display: flex;
   flex-direction: column;
   overflow-y: hidden;
+  text-decoration: none;
   transition: 1s;
 }
 .movie-card:hover {

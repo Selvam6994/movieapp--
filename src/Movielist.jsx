@@ -114,7 +114,7 @@ function Moviecards() {
   return (
     <div className="main">
       {movieData.map((ele) => (
-        <div className="movie-card">
+        <a href={ele.trailer} className="movie-card">
           <img className="poster" src={ele.poster} alt="" />
           <div className="title-rating">
             <p>{ele.name}</p>
@@ -123,7 +123,7 @@ function Moviecards() {
           <div className="movie-summary">
             <p>{ele.summary}</p>
           </div>
-        </div>
+        </a>
       ))}
     </div>
   );

@@ -3,7 +3,6 @@
   padding: 0;
   font-family: Verdana, Geneva, Tahoma, sans-serif;
 }
-
 .Nav {
   border-radius: 10px;
   display: flex;
@@ -11,7 +10,7 @@
   align-items: center;
   margin: 1% 1% 1% 1%;
   height: 60px;
-  background-color: blueviolet;
+  background-color: rgba(105, 12, 4, 0.6);
 }
 
 .title {

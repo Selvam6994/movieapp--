@@ -8,11 +8,13 @@ import Paper from "@mui/material/Paper";
 import ThumbUpAltIcon from "@mui/icons-material/ThumbUpAlt";
 import ThumbDownAltIcon from "@mui/icons-material/ThumbDownAlt";
 import Badge from "@mui/material/Badge";
+import { Link } from "react-router-dom";
 
-function Moviecard(ele) {
-  const [summary, setSummary] = useState("none");
+export function Displaymovies({movieData,deleteMovie,id}) {
+  const [summary, setSummary] = useState(true);
   const [like, setLike] = useState(0);
   const [dislike, setDislike] = useState(0);
+ 
   return (
     <Box
       sx={{
@@ -25,16 +27,17 @@ function Moviecard(ele) {
         },
       }}
     >
+       
       <Paper className="movie-card" elevation={3}>
         <div>
-          <img className="poster" src={ele.movieData.poster} alt="" />
+          <img className="poster" src={movieData.poster} alt="" />
           <div className="title-rating">
-            <p>{ele.movieData.name}</p>
-            {summary != "none" ? (
+            <p>{movieData.name}</p>
+            {summary != true ? (
               <IconButton
                 aria-label="KeyboardArrowUpIcon"
                 color="primary"
-                onClick={() => setSummary("none")}
+                onClick={() => setSummary(true)}
               >
                 <KeyboardArrowUpIcon />
               </IconButton>
@@ -42,7 +45,7 @@ function Moviecard(ele) {
               <IconButton
                 aria-label="KeyboardArrowDownIcon"
                 color="primary"
-                onClick={() => setSummary("block")}
+                onClick={() => setSummary(false)}
               >
                 <KeyboardArrowDownIcon />
               </IconButton>
@@ -52,21 +55,23 @@ function Moviecard(ele) {
               &#11088;
               <span
                 style={
-                  ele.movieData.rating > 8
+                 movieData.rating > 8
                     ? { color: "green" }
                     : { color: "red" }
                 }
               >
-                {ele.movieData.rating}
+                {movieData.rating}
               </span>
             </p>
           </div>
           <div className="movie-summary">
-            <p style={{ display: summary }}>{ele.movieData.summary}</p>
+            {summary != true ? <p>{movieData.summary}</p> : <p></p>}
           </div>
-          <Button href={ele.movieData.trailer}>Watch Trailer</Button>
+          <Link className="trailer_button" to ={`/trailer/${id}`}>
+            <Button>Watch Trailer</Button>
+          </Link>
         </div>
-        <div>
+        <div className="iconButtons">
           <IconButton
             aria-label="KeyboardArrowDownIcon"
             color="warning"
@@ -85,10 +90,14 @@ function Moviecard(ele) {
               <ThumbDownAltIcon />
             </Badge>
           </IconButton>
+          <div className="deleteButton">
+            
+            {deleteMovie}
+          </div>
         </div>
       </Paper>
     </Box>
   );
 }
 
-export default Moviecard;
+

@@ -29,9 +29,14 @@
 }
 .button{
   transition: 1s;
+  text-decoration: none;
+  margin: 0 0 0 20px;
 }
 .button:hover{
 color: rgba(30, 1, 74, 0.7);
+}
+.trailer_button{
+  text-decoration: none;
 }
 .main {
   margin: 0 0 0 50px;
@@ -72,4 +77,16 @@ color: rgba(30, 1, 74, 0.7);
   align-items: center;
   color: rgba(0, 0, 0, 0.768);
   margin: 0 5px;
+}
+.iconButtons{
+  display: flex;
+ align-items: center;
+}
+.deleteButton{
+margin-left: auto;
+}
+.add_movie_form{
+  display: flex;
+  justify-content: center;
+  flex-direction: row;
 }

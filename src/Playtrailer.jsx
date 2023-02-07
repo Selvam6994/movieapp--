@@ -1,7 +1,6 @@
 import React, { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
-import "video-react/dist/video-react.css";
-import { Player } from 'video-react';
+
 
 function Playtrailer() {
   const [movieData, setmovieData] = useState();

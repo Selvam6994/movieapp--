@@ -5,6 +5,7 @@ import "./App.css";
 import Movielist from "./Movielist";
 import Playtrailer from "./Playtrailer";
 
+
 function App() {
   return (
     <div className="App">

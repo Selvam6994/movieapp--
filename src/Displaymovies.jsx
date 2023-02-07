@@ -10,6 +10,7 @@ import ThumbDownAltIcon from "@mui/icons-material/ThumbDownAlt";
 import Badge from "@mui/material/Badge";
 import { Link } from "react-router-dom";
 
+
 export function Displaymovies({movieData,deleteMovie,id}) {
   const [summary, setSummary] = useState(true);
   const [like, setLike] = useState(0);

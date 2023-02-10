@@ -10,12 +10,13 @@ import ThumbDownAltIcon from "@mui/icons-material/ThumbDownAlt";
 import Badge from "@mui/material/Badge";
 import { Link } from "react-router-dom";
 
-
-export function Displaymovies({movieData,deleteMovie,id}) {
+export function Displaymovies({ movieData, deleteMovie, id, theme }) {
   const [summary, setSummary] = useState(true);
   const [like, setLike] = useState(0);
   const [dislike, setDislike] = useState(0);
- 
+
+  let styles = theme != true ? { color: "#212121" } : { color: "#f5f5f5" };
+
   return (
     <Box
       sx={{
@@ -28,11 +29,16 @@ export function Displaymovies({movieData,deleteMovie,id}) {
         },
       }}
     >
-       
       <Paper className="movie-card" elevation={3}>
-        <div>
+        <div
+          style={
+            theme != true
+              ? { backgroundColor: "white" }
+              : { backgroundColor: "#212121" }
+          }
+        >
           <img className="poster" src={movieData.poster} alt="" />
-          <div className="title-rating">
+          <div className="title-rating" style={styles}>
             <p>{movieData.name}</p>
             {summary != true ? (
               <IconButton
@@ -40,7 +46,7 @@ export function Displaymovies({movieData,deleteMovie,id}) {
                 color="primary"
                 onClick={() => setSummary(true)}
               >
-                <KeyboardArrowUpIcon />
+                <KeyboardArrowUpIcon style={styles} />
               </IconButton>
             ) : (
               <IconButton
@@ -48,7 +54,7 @@ export function Displaymovies({movieData,deleteMovie,id}) {
                 color="primary"
                 onClick={() => setSummary(false)}
               >
-                <KeyboardArrowDownIcon />
+                <KeyboardArrowDownIcon style={styles} />
               </IconButton>
             )}
 
@@ -56,23 +62,28 @@ export function Displaymovies({movieData,deleteMovie,id}) {
               &#11088;
               <span
                 style={
-                 movieData.rating > 8
-                    ? { color: "green" }
-                    : { color: "red" }
+                  movieData.rating > 8 ? { color: "green" } : { color: "red" }
                 }
               >
                 {movieData.rating}
               </span>
             </p>
           </div>
-          <div className="movie-summary">
+          <div className="movie-summary" style={styles}>
             {summary != true ? <p>{movieData.summary}</p> : <p></p>}
           </div>
-          <Link className="trailer_button" to ={`/trailer/${id}`}>
+          <Link className="trailer_button" to={`/trailer/${id}`}>
             <Button>Watch Trailer</Button>
           </Link>
         </div>
-        <div className="iconButtons">
+        <div
+          className="iconButtons"
+          style={
+            theme != true
+              ? { backgroundColor: "white", color: "#3B71CA" }
+              : { backgroundColor: "#212121" }
+          }
+        >
           <IconButton
             aria-label="KeyboardArrowDownIcon"
             color="warning"
@@ -91,14 +102,9 @@ export function Displaymovies({movieData,deleteMovie,id}) {
               <ThumbDownAltIcon />
             </Badge>
           </IconButton>
-          <div className="deleteButton">
-            
-            {deleteMovie}
-          </div>
+          <div className="deleteButton">{deleteMovie}</div>
         </div>
       </Paper>
     </Box>
   );
 }
-
-

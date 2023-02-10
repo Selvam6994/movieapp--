@@ -1,7 +1,6 @@
 import React, { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 
-
 function Playtrailer() {
   const [movieData, setmovieData] = useState();
   const { id } = useParams();
@@ -22,11 +21,11 @@ function Playtrailer() {
   // console.log(movieData.trailer);
   return (
     <div>
-     <Player
-      playsInline
-      poster="/assets/poster.png"
-      src="https://media.w3.org/2010/05/sintel/trailer_hd.mp4"
-    />
+      <Player
+        playsInline
+        poster="/assets/poster.png"
+        src="https://media.w3.org/2010/05/sintel/trailer_hd.mp4"
+      />
     </div>
   );
 }

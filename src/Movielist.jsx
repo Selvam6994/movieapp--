@@ -3,7 +3,7 @@ import React, { useEffect, useState } from "react";
 import { Displaymovies } from "./Displaymovies";
 import DeleteIcon from "@mui/icons-material/Delete";
 
-function Movielist() {
+function Movielist({ theme }) {
   const [movieList, setMovieList] = useState([]);
 
   const get_movie_data = async () => {
@@ -32,25 +32,28 @@ function Movielist() {
   };
 
   return (
-    <div className="main">
-      {movieList.map((ele) => (
-        <Displaymovies
-          key={ele.id}
-          movieData={ele}
-          id={ele.id}
-          deleteMovie={
-            <IconButton
-              aria-label="DeleteIcon"
-              color="error"
-              onClick={() => {
-                delete_movie_data(ele.id);
-              }}
-            >
-              <DeleteIcon />
-            </IconButton>
-          }
-        ></Displaymovies>
-      ))}
+    <div className="body">
+      <div className="main">
+        {movieList.map((ele) => (
+          <Displaymovies
+            theme={theme}
+            key={ele.id}
+            movieData={ele}
+            id={ele.id}
+            deleteMovie={
+              <IconButton
+                aria-label="DeleteIcon"
+                color="error"
+                onClick={() => {
+                  delete_movie_data(ele.id);
+                }}
+              >
+                <DeleteIcon />
+              </IconButton>
+            }
+          ></Displaymovies>
+        ))}
+      </div>
     </div>
   );
 }

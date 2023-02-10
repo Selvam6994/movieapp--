@@ -19,28 +19,27 @@ function Addmovies() {
       rating: rating,
       summary: summary,
       trailer: trailer,
-   
     };
-    console.log(newMovieList);
-      const movie = async()=>{await fetch("https://6301ec84c6dda4f287af4f45.mockapi.io/Movieapp", {
+    const movie = async () => {
+      await fetch("https://6301ec84c6dda4f287af4f45.mockapi.io/Movieapp", {
         method: "POST",
         body: JSON.stringify(newMovieList),
         headers: { "Content-Type": "application/json" },
-      });} 
-  
-    movie();
-     navigate("/");
+      });
+    };
 
+    movie();
+    navigate("/");
   };
 
   return (
     <div className="add_movie_form">
-      <div>
-        <Box component="form" noValidate autoComplete="on">
-          <div>
+      <div className="form_content">
+        <Box component="form" noValidate autoComplete="off">
+          <div className="input_div">
             <TextField
+              className="text_field"
               id="outlined-basic"
-              
               label="name"
               variant="outlined"
               onChange={(event) => {
@@ -48,10 +47,10 @@ function Addmovies() {
               }}
             />
           </div>
-          <div>
+          <div className="input_div">
             <TextField
+              className="text_field"
               id="outlined-basic"
-            
               label="poster"
               variant="outlined"
               onChange={(event) => {
@@ -60,10 +59,10 @@ function Addmovies() {
             />
           </div>
 
-          <div>
+          <div className="input_div">
             <TextField
+              className="text_field"
               id="outlined-basic"
-            
               label="rating"
               variant="outlined"
               onChange={(event) => {
@@ -72,10 +71,10 @@ function Addmovies() {
             />
           </div>
 
-          <div>
+          <div className="input_div">
             <TextField
+              className="text_field"
               id="outlined-basic"
-          
               label="summary"
               variant="outlined"
               onChange={(event) => {
@@ -83,10 +82,10 @@ function Addmovies() {
               }}
             />
           </div>
-          <div>
+          <div className="input_div">
             <TextField
+              className="text_field"
               id="outlined-basic"
-
               label="trailer"
               variant="outlined"
               onChange={(event) => {
@@ -95,14 +94,14 @@ function Addmovies() {
             />
           </div>
         </Box>
-        <Button
-          variant="contained"
-          onClick={addMovies}
-        >
+        <Button variant="contained" onClick={addMovies}>
           Add Movies
         </Button>
       </div>
-      <p style={{color:"red"}}>{name}{rating}</p>
+      <p style={{ color: "red" }}>
+        {name}
+        {rating}
+      </p>
     </div>
   );
 }

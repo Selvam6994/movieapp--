@@ -24,7 +24,7 @@ export function Displaymovies({ movieData, deleteMovie, id, theme }) {
         flexWrap: "wrap",
         "& > :not(style)": {
           m: 1,
-          width: "400px",
+          width: "350px",
           height: "fit-to-content",
         },
       }}

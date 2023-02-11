@@ -1,8 +1,9 @@
 import React, { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
+import ReactPlayer from 'react-player'
 
 function Playtrailer() {
-  const [movieData, setmovieData] = useState();
+  const [movieData, setmovieData] = useState({});
   const { id } = useParams();
   const get_data_by_id = async () => {
     const data_by_id = await fetch(
@@ -13,19 +14,26 @@ function Playtrailer() {
     );
     const data = await data_by_id.json();
     setmovieData(data);
+    console.log(data);
   };
   useEffect(() => {
     get_data_by_id();
   }, []);
 
-  // console.log(movieData.trailer);
   return (
     <div>
-      <Player
-        playsInline
-        poster="/assets/poster.png"
-        src="https://media.w3.org/2010/05/sintel/trailer_hd.mp4"
-      />
+    <div className="trailer">
+     <ReactPlayer url={movieData.trailer} 
+  width="80%"
+  height="60vh"
+     className="player"
+     controls={true}
+     />
+     
+    </div>
+    <div>
+    <h2>{movieData.name}</h2>
+    </div>
     </div>
   );
 }

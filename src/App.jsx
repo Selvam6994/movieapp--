@@ -1,4 +1,4 @@
-import { Box, Button, Paper } from "@mui/material";
+import { Box, Button, Paper, Switch } from "@mui/material";
 import { useState } from "react";
 import { Link, Route, Routes } from "react-router-dom";
 import Addmovies from "./Addmovies";
@@ -6,8 +6,12 @@ import "./App.css";
 import Movielist from "./Movielist";
 import Playtrailer from "./Playtrailer";
 
+
 function App() {
   const [theme, setTheme] = useState(false);
+  const handleChange = (event)=>{
+    setTheme(event.target.checked)
+  }
   return (
     <div
       className="App"
@@ -47,12 +51,11 @@ function App() {
               Add Movie
             </Button>
           </Link>
-          <Button variant="contained" onClick={() => setTheme(true)}>
-            Dark
-          </Button>
-          <Button variant="contained" onClick={() => setTheme(false)}>
-            Light
-          </Button>
+          <Switch
+              checked={theme}
+              onChange={handleChange}
+              aria-label="login switch"
+            />
         </div>
       </div>
 

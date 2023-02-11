@@ -61,7 +61,7 @@
 }
 
 .poster {
-  width: 400px;
+  width: 350px;
   height: 500px;
   object-fit: cover;
   object-position: 0px 0px;
@@ -106,4 +106,13 @@
 }
 .form_content{
   margin-top: 150px;
+}
+.trailer{
+  background-color: aqua;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  margin-top: 80px;
+  height: 80vh;
 }

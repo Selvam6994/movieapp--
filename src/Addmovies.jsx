@@ -4,6 +4,8 @@ import Box from "@mui/material/Box";
 import TextField from "@mui/material/TextField";
 import Button from "@mui/material/Button";
 import { useNavigate } from "react-router-dom";
+import { useFormik } from 'formik';
+ import * as Yup from 'yup';
 
 function Addmovies() {
   const [name, setName] = useState("");
@@ -34,7 +36,7 @@ function Addmovies() {
 
   return (
     <div className="add_movie_form">
-      <div className="form_content">
+       <div className="form_content">
         <Box component="form" noValidate autoComplete="off">
           <div className="input_div">
             <TextField
@@ -98,10 +100,6 @@ function Addmovies() {
           Add Movies
         </Button>
       </div>
-      <p style={{ color: "red" }}>
-        {name}
-        {rating}
-      </p>
     </div>
   );
 }

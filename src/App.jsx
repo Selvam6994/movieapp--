@@ -11,11 +11,7 @@ function App() {
   return (
     <div
       className="App"
-      style={
-        theme != true
-          ? { backgroundColor: "white", color: "#3B71CA" }
-          : { backgroundColor: "#332D2D" }
-      }
+      
     >
       <div
         className="Nav"

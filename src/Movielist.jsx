@@ -32,7 +32,11 @@ function Movielist({ theme }) {
   };
 
   return (
-    <div className="body">
+    <div className="body" style={
+      theme != true
+        ? { backgroundColor: "white", color: "#3B71CA" }
+        : { backgroundColor: "#332D2D" }
+    }>
       <div className="main">
         {movieList.map((ele) => (
           <Displaymovies

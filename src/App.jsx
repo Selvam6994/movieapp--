@@ -3,6 +3,7 @@ import { useState } from "react";
 import { Link, Route, Routes } from "react-router-dom";
 import Addmovies from "./Addmovies";
 import "./App.css";
+import Editmovies from "./Editmovies";
 import Movielist from "./Movielist";
 import Playtrailer from "./Playtrailer";
 
@@ -21,8 +22,8 @@ function App() {
         className="Nav"
         style={
           theme != true
-            ? { backgroundColor: "#f5f5f5", color: "#3B71CA" }
-            : { backgroundColor: "#212121" }
+            ? { backgroundColor: "#f5f5f5",  }
+            : { backgroundColor: "#212121", color: "white"}
         }
       >
         <span className="title">Movie Time</span>
@@ -63,6 +64,7 @@ function App() {
         <Route path="/" element={<Movielist theme={theme} />} />
         <Route path="addmovies" element={<Addmovies />} />
         <Route path="trailer/:id" element={<Playtrailer />} />
+        <Route path="editMovies/:id" element={<Editmovies/>}/>
       </Routes>
     </div>
   );

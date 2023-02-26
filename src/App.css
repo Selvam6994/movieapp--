@@ -107,12 +107,15 @@
 .form_content{
   margin-top: 150px;
 }
-.trailer{
-  background-color: aqua;
+/* .trailer{
   display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
+  justify-content:start;
   margin-top: 80px;
   height: 80vh;
+} */
+.details{
+  display: flex;
+  flex-direction: column;
+  width: 40%;
+  flex-wrap: wrap;
 }

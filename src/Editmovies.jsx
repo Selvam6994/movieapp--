@@ -1,42 +1,33 @@
-import * as React from "react";
-import { useState } from "react";
-import Box from "@mui/material/Box";
-import TextField from "@mui/material/TextField";
-import Button from "@mui/material/Button";
-import { useNavigate } from "react-router-dom";
+import { Button, TextField } from "@mui/material";
+import { Box } from "@mui/system";
+import React, { useEffect, useState } from "react";
+import { useParams } from "react-router-dom";
 import api from "./global"
-// import { useFormik } from 'formik';
-//  import * as Yup from 'yup';
 
-function Addmovies() {
-  const [name, setName] = useState("");
-  const [poster, setPoster] = useState("");
-  const [rating, setRating] = useState("");
-  const [summary, setSummary] = useState("");
-  const [trailer, setTrailer] = useState("");
-  const navigate = useNavigate();
-  const addMovies = () => {
-    const newMovieList = {
-      name: name,
-      poster: poster,
-      rating: rating,
-      summary: summary,
-      trailer: trailer,
-    };
-    const movie = async () => {
-      await fetch(`${api}`, {
-        method: "POST",
-        body: JSON.stringify(newMovieList),
-        headers: { "Content-Type": "application/json" },
-      });
-    };
 
-    movie();
-    navigate("/");
+function Editmovies() {
+  const [movieData, setmovieData] = useState({});
+  const { id } = useParams();
+
+  const get_data_by_id = async () => {
+    const data_by_id = await fetch(
+      `${api}/${id}`,
+      {
+        method: "GET",
+      }
+    );
+    const data = await data_by_id.json();
+    setmovieData(data);
+    console.log(data);
   };
+  useEffect(() => {
+    get_data_by_id();
+  }, []);
 
   return (
+    
     <div className="add_movie_form">
+      {console.log(movieData.name)}
       <div className="form_content">
         <Box component="form" noValidate autoComplete="off">
           <div className="input_div">
@@ -45,6 +36,7 @@ function Addmovies() {
               id="outlined-basic"
               label="name"
               variant="outlined"
+              defaultValue={movieData.name}
               onChange={(event) => {
                 setName(event.target.value);
               }}
@@ -97,12 +89,10 @@ function Addmovies() {
             />
           </div>
         </Box>
-        <Button variant="contained" onClick={addMovies}>
-          Add Movies
-        </Button>
+        <Button variant="contained">Edit Movies</Button>
       </div>
     </div>
   );
 }
 
-export default Addmovies;
+export default Editmovies;

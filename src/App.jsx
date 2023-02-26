@@ -63,7 +63,7 @@ function App() {
       <Routes>
         <Route path="/" element={<Movielist theme={theme} />} />
         <Route path="addmovies" element={<Addmovies />} />
-        <Route path="trailer/:id" element={<Playtrailer />} />
+        <Route path="trailer/:name" element={<Playtrailer />} />
         <Route path="editMovies/:id" element={<Editmovies/>}/>
       </Routes>
     </div>

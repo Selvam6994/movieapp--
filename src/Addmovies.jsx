@@ -96,6 +96,7 @@ function Addmovies() {
               }}
             />
           </div>
+         
         </Box>
         <Button variant="contained" onClick={addMovies}>
           Add Movies

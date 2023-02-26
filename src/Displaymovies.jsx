@@ -10,7 +10,7 @@ import ThumbDownAltIcon from "@mui/icons-material/ThumbDownAlt";
 import Badge from "@mui/material/Badge";
 import { Link } from "react-router-dom";
 
-export function Displaymovies({ movieData, deleteMovie,editMovie, id, theme }) {
+export function Displaymovies({ movieData, deleteMovie,editMovie, name, theme }) {
   const [summary, setSummary] = useState(true);
   const [like, setLike] = useState(0);
   const [dislike, setDislike] = useState(0);
@@ -72,7 +72,7 @@ export function Displaymovies({ movieData, deleteMovie,editMovie, id, theme }) {
           <div className="movie-summary" style={styles}>
             {summary != true ? <p>{movieData.summary}</p> : <p></p>}
           </div>
-          <Link className="trailer_button" to={`/trailer/${id}`}>
+          <Link className="trailer_button" to={`/trailer/${name}`}>
             <Button>Watch Trailer</Button>
           </Link>
         </div>

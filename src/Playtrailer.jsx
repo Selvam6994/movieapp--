@@ -10,11 +10,11 @@ import api from "./global"
 
 function Playtrailer() {
   const [movieData, setmovieData] = useState({});
-  const { id } = useParams();
+  const { name } = useParams();
   const matches = useMediaQuery('(min-width:600px)');
   const get_data_by_id = async () => {
     const data_by_id = await fetch(
-      `${api}/${id}`,
+      `${api}/${name}`,
       {
         method: "GET",
       }

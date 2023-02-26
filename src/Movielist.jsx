@@ -25,9 +25,9 @@ function Movielist({ theme }) {
     get_movie_data();
   }, []);
 
-  const delete_movie_data = async (id) => {
+  const delete_movie_data = async (name) => {
     const delete_data = await fetch(
-      `${api}/${id}`,
+      `${api}/${name}`,
       {
         method: "DELETE",
       }
@@ -50,13 +50,13 @@ function Movielist({ theme }) {
             theme={theme}
             key={ele.id}
             movieData={ele}
-            id={ele.id}
+            name={ele.name}
             deleteMovie={
               <IconButton
                 aria-label="DeleteIcon"
                 color="error"
                 onClick={() => {
-                  delete_movie_data(ele.id);
+                  delete_movie_data(ele.name);
                 }}
               >
                 <DeleteIcon />
